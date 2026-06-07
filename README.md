@@ -51,10 +51,12 @@ App runs at `http://localhost:5173`.
 
 ### Backend (Web Service)
 
+Deploy from the **repo root** — root `package.json` installs and builds all sub-projects.
+
 | Setting | Value |
 |---------|-------|
-| Root Directory | `backend` |
-| Build Command | `npm install && npm run build && npx prisma db push` |
+| Root Directory | *(leave blank)* |
+| Build Command | `npm install && npm run build && npm run db:push` |
 | Start Command | `npm start` |
 | Health Check Path | `/health` |
 
@@ -64,15 +66,15 @@ Environment variables:
 - `CORS_ORIGIN` — your frontend URL (e.g. `https://your-app.onrender.com`)
 - `NODE_ENV` — `production`
 
-Optional: run `npm run db:seed` once after first deploy.
+Optional: run `npm run db:seed` once after first deploy (Render Shell).
 
 ### Frontend (Static Site)
 
 | Setting | Value |
 |---------|-------|
-| Root Directory | `frontend` |
-| Build Command | `npm install && npm run build` |
-| Publish Directory | `dist` |
+| Root Directory | *(leave blank)* |
+| Build Command | `npm install && npm run build:frontend` |
+| Publish Directory | `frontend/dist` |
 
 Environment variable:
 
