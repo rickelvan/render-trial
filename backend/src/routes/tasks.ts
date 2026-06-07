@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { TaskStatus } from "@prisma/client";
-import { prisma } from "../lib/prisma";
+import prisma from "../lib/prisma";
 
 export const tasksRouter = Router();
 
