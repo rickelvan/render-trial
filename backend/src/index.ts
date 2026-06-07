@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import path from "path";
 import { healthRouter } from "./routes/health";
 import { tasksRouter } from "./routes/tasks";
 
@@ -20,6 +21,13 @@ app.use(express.json());
 
 app.use(healthRouter);
 app.use("/api/tasks", tasksRouter);
+
+// Serve frontend
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Task Board API listening on port ${port}`);
